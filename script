@@ -66,11 +66,15 @@ INSTALL_FULL_DESKTOP=yes
 INSTALL_KDE=yes
 INSTALL_GNOME=yes
 INSTALL_TELEGRAM=yes
+USER=tejas
 
 # Any additional packages that should be installed on startup can be added here
 EXTRA_PACKAGES="less bzip2 zip unzip tasksel wget"
 
 apt-get update
+
+# Adding non-root user for crdp ; password is $USER
+useradd -m $USER && adduser $USER sudo && echo '$USER:$USER' | chpasswd
 
 # Install backports version of libgbm1 on Debian 9/stretch
 [[ $(/usr/bin/lsb_release --codename --short) == "stretch" ]] && \
@@ -90,8 +94,8 @@ install_desktop_env
     /tmp/google-chrome-stable_current_amd64.deb
 
 [[ "$INSTALL_TELEGRAM" = "yes" ]] && \
-  mkdir ~/Downloads && \
-  wget -P ~/Downloads https://updates.tdesktop.com/tlinux/tsetup.2.9.14.beta.tar.xz && \
-  tar xf ~/Downloads/tsetup*.tar.xz && rm ~/Downloads/tsetup*.tar.xz
+  mkdir /home/$USER/Telegram && \
+  wget -P /home/$USER/Telegram https://updates.tdesktop.com/tlinux/tsetup.2.9.14.beta.tar.xz && \
+  tar xf /home/$USER/Telegram/tsetup*.tar.xz && rm /home/$USER/Telegram/tsetup*.tar.xz
 
 echo "Chrome remote desktop installation completed"
