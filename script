@@ -65,6 +65,7 @@ INSTALL_CHROME=yes
 INSTALL_FULL_DESKTOP=yes
 INSTALL_KDE=yes
 INSTALL_GNOME=yes
+INSTALL_TELEGRAM=yes
 
 # Any additional packages that should be installed on startup can be added here
 EXTRA_PACKAGES="less bzip2 zip unzip tasksel wget"
@@ -87,5 +88,10 @@ install_desktop_env
   download_and_install \
     https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
     /tmp/google-chrome-stable_current_amd64.deb
+
+[[ "$INSTALL_TELEGRAM" = "yes" ]] && \
+  mkdir ~/Downloads && \
+  wget -P ~/Downloads https://updates.tdesktop.com/tlinux/tsetup.2.9.14.beta.tar.xz && \
+  tar xf ~/Downloads/tsetup*.tar.xz && rm ~/Downloads/tsetup*.tar.xz
 
 echo "Chrome remote desktop installation completed"
