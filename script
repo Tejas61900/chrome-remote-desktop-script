@@ -73,8 +73,8 @@ EXTRA_PACKAGES="less bzip2 zip unzip tasksel wget"
 
 apt-get update
 
-# Adding non-root user for crdp ; password is $USER
-useradd -m $USER && adduser $USER sudo && echo '$USER:$USER' | chpasswd
+# Adding non-root user for crdp ; password is "tejas"
+useradd -m $USER && adduser $USER sudo && echo 'tejas:tejas' | chpasswd
 
 # Install backports version of libgbm1 on Debian 9/stretch
 [[ $(/usr/bin/lsb_release --codename --short) == "stretch" ]] && \
