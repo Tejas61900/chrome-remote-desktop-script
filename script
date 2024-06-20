@@ -69,7 +69,7 @@ INSTALL_TELEGRAM=no
 #USER=tejas
 
 # Any additional packages that should be installed on startup can be added here
-EXTRA_PACKAGES="less bzip2 zip unzip tasksel wget"
+EXTRA_PACKAGES="zip unzip"
 
 apt-get update
 
