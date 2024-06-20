@@ -60,13 +60,13 @@ function is_installed {  # args PACKAGE_NAME
 
 # Configure the following environmental variables as required:
 INSTALL_XFCE=yes
-INSTALL_CINNAMON=yes
+INSTALL_CINNAMON=no
 INSTALL_CHROME=yes
-INSTALL_FULL_DESKTOP=yes
-INSTALL_KDE=yes
-INSTALL_GNOME=yes
-INSTALL_TELEGRAM=yes
-USER=tejas
+INSTALL_FULL_DESKTOP=no
+INSTALL_KDE=no
+INSTALL_GNOME=no
+INSTALL_TELEGRAM=no
+#USER=tejas
 
 # Any additional packages that should be installed on startup can be added here
 EXTRA_PACKAGES="less bzip2 zip unzip tasksel wget"
@@ -74,7 +74,7 @@ EXTRA_PACKAGES="less bzip2 zip unzip tasksel wget"
 apt-get update
 
 # Adding non-root user for crdp ; password is "tejas"
-useradd -m $USER && adduser $USER sudo && echo 'tejas:tejas' | chpasswd
+#useradd -m $USER && adduser $USER sudo && echo 'tejas:tejas' | chpasswd
 
 # Install backports version of libgbm1 on Debian 9/stretch
 [[ $(/usr/bin/lsb_release --codename --short) == "stretch" ]] && \
